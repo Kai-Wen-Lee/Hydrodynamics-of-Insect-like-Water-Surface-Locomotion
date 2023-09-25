@@ -1,0 +1,13 @@
+% Contains functions to generate sinusoidal motion
+% Input: Amplitude, Frequency
+% Output: Position array 
+
+% Based on code by Ben Irwin
+
+function [pos,dt,t,END_TIME]=SIN_POS_SIGNAL_GEN(TARGET_STROKEAMP,TARGET_STROKEFREQ,TARGET_STROKE_OFFSET, TARGET_CYCLES,POINTS_PER_CYCLE_STROKE)
+
+END_TIME=TARGET_CYCLES/TARGET_STROKEFREQ;
+dt=(1/TARGET_STROKEFREQ)/POINTS_PER_CYCLE_STROKE;
+t=0:dt:END_TIME;
+
+pos=TARGET_STROKEAMP*sin(2*pi*TARGET_STROKEFREQ*t+TARGET_STROKE_OFFSET);
